@@ -17,15 +17,15 @@ output wire [15:0] data_status
     );
 
 //making registers
-reg [15:0] special_regs [2:0]
+reg [15:0] special_regs [2:0];
 
 //assigning outputs 
-assign special_regs[0]=data_lo
-assign special_regs[1]=data_hi
-assign special_regs[2]=data_status
+assign data_lo = special_regs[0];
+assign data_hi = special_regs[1];
+assign data_status = special_regs[2];
 
 //logic
-always @(posedge clock)
+always @(posedge clock or posedge reset)
 begin
   if (reset==1)
    begin
@@ -35,25 +35,36 @@ begin
    end
 end 
 
-always @(posedge clock)
+always @(posedge clock or posedge reset)
 begin 
-  if (write_lo && write_hi==1)
+  if (reset==1)
     begin
-	   special_regs[0]<=value_lo;
-		special_regs[1]<=value_hi;
-	 end
+      special_regs[0]<=16'b0;
+      special_regs[1]<=16'b0;
+    end
+  else
+    begin
+      if (write_lo==1)
+        special_regs[0]<=value_lo;
+      if (write_hi==1)
+        special_regs[1]<=value_hi;
+    end
 end
 
-always @(posedge clock)
+always @(posedge clock or posedge reset)
 begin
-  if (overflow==1)
-    special_regs[3]<=16'b00001;
+  if (reset==1)
+    special_regs[2]<=16'b0;
+  else if (overflow==1)
+    special_regs[2]<=16'b00001;
   else if (carry==1)
-    special_regs[3]<=16'b00010;
+    special_regs[2]<=16'b00010;
   else if (negative==1)
-    special_regs[3]<=16'b00100;
-  else if (zero==10
-    special_regs[3]<=16'b01000;
+    special_regs[2]<=16'b00100;
+  else if (zero==1)
+    special_regs[2]<=16'b01000;
+  else
+    special_regs[2]<=16'b0;
 end
 	 
 	 
