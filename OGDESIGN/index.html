@@ -79,38 +79,64 @@ https://templatemo.com/tm-600-prism-flux
             <div class="prism-line"></div>
             
             <h2 class="philosophy-headline">
-                Refracting Ideas<br>Into Reality
+                Meet the CS 117<br>Processor Team
             </h2>
             
             <p class="philosophy-subheading">
-                At PRISM FLUX, we transform complex challenges into elegant solutions through the convergence of 
-                cutting-edge technology and visionary design. Every project is a spectrum of possibilities 
-                waiting to be discovered.
+                This project was designed and implemented by three students in CS 117, collaborating to build a
+                custom processor from individual Verilog modules all the way up to an integrated top module.
             </p>
             
             <div class="philosophy-pillars">
                 <div class="pillar">
-                    <div class="pillar-icon">💎</div>
-                    <h3 class="pillar-title">Innovation</h3>
+                    <div class="pillar-icon">🧭</div>
+                    <h3 class="pillar-title">Lameea Mubashir Khan</h3>
                     <p class="pillar-description">
-                        Breaking boundaries with revolutionary approaches that redefine industry standards and push the limits of what's possible. Elevate your designs with premium vector stickers from <a href="https://www.vectorsticker.com" rel="nofollow" target="_blank">VectorSticker</a>.
+                        Designed and implemented the control-path building blocks of the processor, including:
                     </p>
+                    <ul class="pillar-modules">
+                        <li><code>control_unit.v</code></li>
+                        <li><code>instruction_memory.v</code></li>
+                        <li><code>instruction_register.v</code></li>
+                        <li><code>instruction_reader.v</code></li>
+                        <li><code>pc_incrementer.v</code></li>
+                        <li><code>pc_offset_adder.v</code></li>
+                        <li><code>pc_select_mux.v</code></li>
+                        <li><code>program_counter.v</code></li>
+                    </ul>
                 </div>
-                
+
                 <div class="pillar">
-                    <div class="pillar-icon">🔬</div>
-                    <h3 class="pillar-title">Precision</h3>
+                    <div class="pillar-icon">⚙️</div>
+                    <h3 class="pillar-title">Tooba Fatima</h3>
                     <p class="pillar-description">
-                        Meticulous attention to detail ensures every pixel, every line of code, and every interaction is perfectly crafted by <a href="https://templatemo.com" rel="nofollow" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">TemplateMo</a>, enhanced with stunning visuals from <a href="https://unsplash.com" rel="nofollow" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">Unsplash</a>.
+                        Implemented the core datapath components, enabling arithmetic, logical, and register-level
+                        operations, including:
                     </p>
+                    <ul class="pillar-modules">
+                        <li><code>alu.v</code></li>
+                        <li><code>flags_update.v</code></li>
+                        <li><code>operand_select_mux.v</code></li>
+                        <li><code>register_file.v</code></li>
+                        <li><code>special_registers.v</code></li>
+                        <li><code>writeback_mux.v</code></li>
+                    </ul>
                 </div>
-                
+
                 <div class="pillar">
-                    <div class="pillar-icon">∞</div>
-                    <h3 class="pillar-title">Evolution</h3>
+                    <div class="pillar-icon">🧠</div>
+                    <h3 class="pillar-title">Muhammad Taha Bin Zaeem</h3>
                     <p class="pillar-description">
-                        Continuous adaptation and growth, staying ahead of trends while building timeless solutions for tomorrow. Boost your productivity with the easy-to-use timer tools at <a href="https://timermo.com" rel="nofollow" target="_blank">TimerMo</a>.
+                        Developed branching and memory control logic, and integrated all modules into the final
+                        <code>top_module.v</code>, including:
                     </p>
+                    <ul class="pillar-modules">
+                        <li><code>condition_check.v</code></li>
+                        <li><code>data_memory.v</code></li>
+                        <li><code>immediate_extend.v</code></li>
+                        <li><code>load_lane_insert.v</code></li>
+                        <li><code>store_data_select.v</code></li>
+                    </ul>
                 </div>
             </div>
             
@@ -317,4 +343,3 @@ https://templatemo.com/tm-600-prism-flux
 <script src="templatemo-prism-scripts.js"></script>
 </body>
 </html>
-

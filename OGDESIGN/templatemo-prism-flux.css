@@ -788,6 +788,14 @@ body::after {
 	color: var(--text-secondary);
 	line-height: 1.6;
 }
+
+.pillar-modules {
+	margin: 15px 0 0;
+	padding-left: 20px;
+	text-align: left;
+	color: var(--text-secondary);
+	line-height: 1.6;
+}
 .pillar-description a {
 	color: var(--accent-cyan);
 	text-decoration: none;
