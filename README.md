@@ -38,9 +38,17 @@ This document defines a user-facing, MIPS-like assembly language for the custom 
 [13:11] rt
 [19:14] shamt
 [19:11] immediate (imm9) / jump target
-[19:18] lane_select (I-modified instructions)
+[19:18] lane_select (LW/SW)
 [17:11] immediate (imm7) for MIN/MAX/EQ (opcodes 29–31)
 ```
+
+**Format by instruction type**
+
+* **R-type:** `opcode + rd + rs + rt` (and `shamt` for shifts).
+* **I-type:** `opcode + rd + rs + imm9`.
+* **J-type:** `opcode + imm9`.
+* **LW/SW (I-modified):** `opcode + rd/rt + rs + imm9 + lane_select[19:18]`.
+* **MIN/MAX/EQ (opcodes 29–31):** `opcode + rd + rs + rt/imm7 + mode_bits[19:18]`.
 
 ## Assembly Syntax Rules
 
@@ -94,7 +102,7 @@ This document defines a user-facing, MIPS-like assembly language for the custom 
 | LI | `LI rd, imm` | Load immediate into low 16 bits. | `opcode=14, rd, imm9[19:11]` |
 | VLI | `VLI rd, imm` | Load immediate, replicated to all lanes. | `opcode=15, rd, imm9[19:11]` |
 
-> **Assumption (SW encoding):** The README’s field layout implies `rt` shares the same bits as the low 3 bits of `imm9`. The assembler should still encode both; the low 3 bits of the offset must match the chosen `rt`.
+> **Assumption (SW encoding):** `rt` and the low 3 bits of `imm9` overlap in the published field layout. The assembler should enforce that the offset’s low 3 bits match `rt` and report an error if they do not.
 
 ### Branch/Jump
 
@@ -113,24 +121,24 @@ This document defines a user-facing, MIPS-like assembly language for the custom 
 
 ### Extended MIN/MAX/EQ (opcodes 29–31)
 
-These opcodes reuse `lane_select` as **mode bits**:
+These opcodes reuse bits `[19:18]` as **mode bits** (not lane selection):
 
-* `lane_select[0] = 1` → immediate variant (uses imm7 in bits [17:11])
-* `lane_select[1] = 1` → vector-lane operation (4×16-bit lanes)
+* `mode_bits[0] = 1` → immediate variant (uses imm7 in bits [17:11])
+* `mode_bits[1] = 1` → vector-lane operation (4×16-bit lanes)
 
 | Mnemonic | Example syntax | Description | Fields used |
 | --- | --- | --- | --- |
-| MIN | `MIN rd, rs, rt` | Scalar min. | `opcode=29, rd, rs, rt, lane_select=00` |
-| MINI | `MINI rd, rs, imm` | Scalar min immediate. | `opcode=29, rd, rs, imm7[17:11], lane_select=01` |
-| MIN.V | `MIN.V rd, rs, rt` | Vector min. | `opcode=29, rd, rs, rt, lane_select=10` |
-| MIN.VI | `MIN.VI rd, rs, imm` | Vector min immediate. | `opcode=29, rd, rs, imm7[17:11], lane_select=11` |
-| MAX | `MAX rd, rs, rt` | Scalar max. | `opcode=30, rd, rs, rt, lane_select=00` |
-| MAXI | `MAXI rd, rs, imm` | Scalar max immediate. | `opcode=30, rd, rs, imm7[17:11], lane_select=01` |
-| MAX.V | `MAX.V rd, rs, rt` | Vector max. | `opcode=30, rd, rs, rt, lane_select=10` |
-| MAX.VI | `MAX.VI rd, rs, imm` | Vector max immediate. | `opcode=30, rd, rs, imm7[17:11], lane_select=11` |
-| EQ | `EQ rd, rs, rt` | Scalar compare equal. | `opcode=31, rd, rs, rt, lane_select=00` |
-| EQI | `EQI rd, rs, imm` | Scalar compare equal immediate. | `opcode=31, rd, rs, imm7[17:11], lane_select=01` |
-| EQ.V | `EQ.V rd, rs, rt` | Vector compare equal. | `opcode=31, rd, rs, rt, lane_select=10` |
-| EQ.VI | `EQ.VI rd, rs, imm` | Vector compare equal immediate. | `opcode=31, rd, rs, imm7[17:11], lane_select=11` |
+| MIN | `MIN rd, rs, rt` | Scalar min. | `opcode=29, rd, rs, rt, mode_bits=00` |
+| MINI | `MINI rd, rs, imm` | Scalar min immediate. | `opcode=29, rd, rs, imm7[17:11], mode_bits=01` |
+| MIN.V | `MIN.V rd, rs, rt` | Vector min. | `opcode=29, rd, rs, rt, mode_bits=10` |
+| MIN.VI | `MIN.VI rd, rs, imm` | Vector min immediate. | `opcode=29, rd, rs, imm7[17:11], mode_bits=11` |
+| MAX | `MAX rd, rs, rt` | Scalar max. | `opcode=30, rd, rs, rt, mode_bits=00` |
+| MAXI | `MAXI rd, rs, imm` | Scalar max immediate. | `opcode=30, rd, rs, imm7[17:11], mode_bits=01` |
+| MAX.V | `MAX.V rd, rs, rt` | Vector max. | `opcode=30, rd, rs, rt, mode_bits=10` |
+| MAX.VI | `MAX.VI rd, rs, imm` | Vector max immediate. | `opcode=30, rd, rs, imm7[17:11], mode_bits=11` |
+| EQ | `EQ rd, rs, rt` | Scalar compare equal. | `opcode=31, rd, rs, rt, mode_bits=00` |
+| EQI | `EQI rd, rs, imm` | Scalar compare equal immediate. | `opcode=31, rd, rs, imm7[17:11], mode_bits=01` |
+| EQ.V | `EQ.V rd, rs, rt` | Vector compare equal. | `opcode=31, rd, rs, rt, mode_bits=10` |
+| EQ.VI | `EQ.VI rd, rs, imm` | Vector compare equal immediate. | `opcode=31, rd, rs, imm7[17:11], mode_bits=11` |
 
 > **Assumption (EQ semantics):** Scalar EQ writes 1 (true) or 0 (false) in the low 16 bits. Vector EQ uses 0xFFFF/0x0000 per lane, consistent with the README’s VEQ description.
