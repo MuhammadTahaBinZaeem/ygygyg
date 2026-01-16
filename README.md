@@ -57,8 +57,8 @@ The diagram above shows shared bit positions. Individual instructions reinterpre
 * **Registers:** `r0`–`r7`
 * **Labels:** `label:` on its own line, referenced by name in branches/jumps.
 * **Immediates:** decimal (`42`, `-1`) or hex (`0x2A`, `-0x1`).
-  * **imm9:** signed 9-bit two’s-complement for most I-type instructions (range -256 to +255 inclusive; values outside this range are invalid).
-  * **imm7:** signed 7-bit for MIN/MAX/EQ immediate variants (range -64..63).
+  * **imm9:** signed 9-bit two’s-complement for most I-type instructions (range -2^8 to 2^8-1; values outside this range are invalid).
+  * **imm7:** signed 7-bit two’s-complement for MIN/MAX/EQ immediate variants (range -2^6 to 2^6-1).
   * **shamt:** 6-bit unsigned (range 0..63).
 * **Comments:** `// comment`
 * **Lane selection:** optional `.L0`/`.L1`/`.L2`/`.L3` suffix for LW/SW (default `.L0`).
