@@ -1,6 +1,6 @@
 # Custom CPU Assembly Language Specification
 
-This document defines a user-facing, MIPS-like assembly language for the custom 20-bit CPU described in the provided README. It is intended to hide opcode/bitfield details while still mapping cleanly to the hardware. Any items marked **Assumption** are inferred from the README text and sample encodings.
+This document defines a user-facing, MIPS-like assembly language for the custom 20-bit CPU described in the provided README. It is intended to hide opcode/bitfield details while still mapping cleanly to the hardware. Any items marked **Assumption** are inferred from the README text and sample encodings. If the original HDL differs, the assembler/emulator should follow the HDL, not this spec.
 
 ## Register Set and Names
 
@@ -42,6 +42,8 @@ This document defines a user-facing, MIPS-like assembly language for the custom 
 [17:11] immediate (imm7) for MIN/MAX/EQ (opcodes 29–31)
 ```
 
+The diagram above shows shared bit positions. Individual instructions reinterpret the same bits as `shamt`, `imm9`, `lane_select`, or `mode_bits` depending on opcode.
+
 **Format by instruction type**
 
 * **R-type:** `opcode + rd + rs + rt` (and `shamt` for shifts).
@@ -55,7 +57,7 @@ This document defines a user-facing, MIPS-like assembly language for the custom 
 * **Registers:** `r0`–`r7`
 * **Labels:** `label:` on its own line, referenced by name in branches/jumps.
 * **Immediates:** decimal (`42`, `-1`) or hex (`0x2A`, `-0x1`).
-  * **imm9:** signed 9-bit two’s-complement for most I-type instructions (range -256 to +255 inclusive).
+  * **imm9:** signed 9-bit two’s-complement for most I-type instructions (range -256 to +255 inclusive; values outside this range are invalid).
   * **imm7:** signed 7-bit for MIN/MAX/EQ immediate variants (range -64..63).
   * **shamt:** 6-bit unsigned (range 0..63).
 * **Comments:** `// comment`
