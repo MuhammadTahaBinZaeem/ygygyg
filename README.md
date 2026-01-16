@@ -18,8 +18,8 @@ This document defines a user-facing, MIPS-like assembly language for the custom 
 * **Instruction width:** 20 bits.
 * **PC width:** 9 bits (0–511), addressing **instruction indices**.
 * **PC increment:** +1 per instruction.
-* **Branching:** uses a signed 9-bit offset relative to the next instruction. **Assumption** (typical single-cycle design).
-* **Jump:** uses a 9-bit absolute target index (0–511). **Assumption**.
+* **Branching:** uses the imm9 field as a signed offset relative to the next instruction. **Assumption** (typical single-cycle design).
+* **Jump:** uses the imm9 field as an absolute instruction index (0–511), matching the 9-bit PC width. **Assumption**.
 
 ### Data memory
 * **Word size:** 16 bits.
@@ -55,7 +55,7 @@ This document defines a user-facing, MIPS-like assembly language for the custom 
 * **Registers:** `r0`–`r7`
 * **Labels:** `label:` on its own line, referenced by name in branches/jumps.
 * **Immediates:** decimal (`42`, `-1`) or hex (`0x2A`, `-0x1`).
-  * **imm9:** signed 9-bit for most I-type instructions (range -256..255).
+  * **imm9:** signed 9-bit for most I-type instructions (range -256 to +255 inclusive).
   * **imm7:** signed 7-bit for MIN/MAX/EQ immediate variants (range -64..63).
   * **shamt:** 6-bit unsigned (range 0..63).
 * **Comments:** `// comment`
@@ -102,7 +102,7 @@ This document defines a user-facing, MIPS-like assembly language for the custom 
 | LI | `LI rd, imm` | Load immediate into low 16 bits. | `opcode=14, rd, imm9[19:11]` |
 | VLI | `VLI rd, imm` | Load immediate, replicated to all lanes. | `opcode=15, rd, imm9[19:11]` |
 
-> **Assumption (SW encoding):** `rt` and the low 3 bits of `imm9` overlap in the published field layout. The assembler should enforce that the offset’s low 3 bits match `rt` and report an error if they do not.
+> **Assumption (SW encoding):** `rt` and the low 3 bits of `imm9` overlap in the published field layout. This ties the offset’s low 3 bits to the chosen `rt` value; the assembler should enforce this hardware constraint and report a mismatch as an error.
 
 ### Branch/Jump
 
