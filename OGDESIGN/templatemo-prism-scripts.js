@@ -9,74 +9,80 @@ https://templatemo.com/tm-600-prism-flux
 */
 
 
-// Portfolio data for carousel
+        // Portfolio data for carousel
+
+        const uiConfig = {
+            scrollTarget: 'stats',
+            moduleCompletion: 100,
+            verificationMessage: 'Verification notes captured! Use the checklist above to validate PC flow, registers, memory, vectors, and flags.'
+        };
 
         const portfolioData = [
             {
                 id: 1,
-                title: 'Neural Network',
-                description: 'Advanced AI system with deep learning capabilities for predictive analytics and pattern recognition.',
-                image: 'images/neural-network.jpg',
-                tech: ['TensorFlow', 'Python', 'CUDA']
+                title: 'Single-Cycle CPU',
+                description: 'Custom 20-bit ISA with Harvard architecture and a 9-bit PC addressing 512 instructions.',
+                image: 'images/cpu-chip.svg',
+                tech: ['20-bit ISA', 'Harvard', 'Single-Cycle']
             },
             {
                 id: 2,
-                title: 'Quantum Cloud',
-                description: 'Next-generation cloud infrastructure leveraging quantum computing for unprecedented processing power.',
-                image: 'images/quantum-cloud.jpg',
-                tech: ['AWS', 'Kubernetes', 'Docker']
+                title: 'Instruction Format',
+                description: 'Opcode, rd/rs/rt, shamt, immediate, and lane_select fields support R/I/vector modes.',
+                image: 'images/verilog-logo.svg',
+                tech: ['Opcode', 'Lane Select', 'Immediate']
             },
             {
                 id: 3,
-                title: 'Blockchain Vault',
-                description: 'Secure decentralized storage solution using advanced encryption and distributed ledger technology.',
-                image: 'images/blockchain-vault.jpg',
-                tech: ['Ethereum', 'Solidity', 'Web3']
+                title: 'Scalar + Vector ALU',
+                description: '16-bit scalar math, 4×16-bit vector lanes, flags, and Hi/Lo multiplication results.',
+                image: 'images/cpu-chip.svg',
+                tech: ['Scalar', 'Vector', 'Hi/Lo']
             },
             {
                 id: 4,
-                title: 'Cyber Defense',
-                description: 'Military-grade cybersecurity framework with real-time threat detection and automated response.',
-                image: 'images/cyber-defense.jpg',
-                tech: ['Zero Trust', 'AI Defense', 'Encryption']
+                title: 'Memory Subsystem',
+                description: 'Separate instruction/data memory with load lane insert and store data select logic.',
+                image: 'images/memory-module.svg',
+                tech: ['LW/SW', 'Lane Insert', 'Store Select']
             },
             {
                 id: 5,
-                title: 'Data Nexus',
-                description: 'Big data processing platform capable of analyzing petabytes of information in real-time.',
-                image: 'images/data-nexus.jpg',
-                tech: ['Apache Spark', 'Hadoop', 'Kafka']
+                title: 'Xilinx ISE Simulation',
+                description: 'ISE 14.x + ISim workflow using top_module.v and a Verilog testbench.',
+                image: 'images/xilinx-ise.svg',
+                tech: ['ISE 14.x', 'ISim', 'TopModule']
             },
             {
                 id: 6,
-                title: 'AR Interface',
-                description: 'Augmented reality system for immersive data visualization and interactive experiences.',
-                image: 'images/ar-interface.jpg',
-                tech: ['Unity', 'ARCore', 'Computer Vision']
-            },
-            {
-                id: 7,
-                title: 'IoT Matrix',
-                description: 'Intelligent IoT ecosystem connecting millions of devices with edge computing capabilities.',
-                image: 'images/iot-matrix.jpg',
-                tech: ['MQTT', 'Edge AI', '5G']
+                title: 'Verification Flow',
+                description: 'Validate PC sequencing, register writes, memory accesses, vector ops, and flags.',
+                image: 'images/memory-module.svg',
+                tech: ['PC', 'Registers', 'Flags']
             }
         ];
 
         // Skills data
         const skillsData = [
-            { name: 'React.js', icon: '⚛️', level: 95, category: 'frontend' },
-            { name: 'Node.js', icon: '🟢', level: 90, category: 'backend' },
-            { name: 'TypeScript', icon: '📘', level: 88, category: 'frontend' },
-            { name: 'AWS', icon: '☁️', level: 92, category: 'cloud' },
-            { name: 'Docker', icon: '🐳', level: 85, category: 'cloud' },
-            { name: 'Python', icon: '🐍', level: 93, category: 'backend' },
-            { name: 'Kubernetes', icon: '☸️', level: 82, category: 'cloud' },
-            { name: 'GraphQL', icon: '◈', level: 87, category: 'backend' },
-            { name: 'TensorFlow', icon: '🤖', level: 78, category: 'emerging' },
-            { name: 'Blockchain', icon: '🔗', level: 75, category: 'emerging' },
-            { name: 'Vue.js', icon: '💚', level: 85, category: 'frontend' },
-            { name: 'MongoDB', icon: '🍃', level: 90, category: 'backend' }
+            { name: 'Program Counter', icon: '🧭', level: uiConfig.moduleCompletion, category: 'fetch', detail: '9-bit PC' },
+            { name: 'Instruction Memory', icon: '📥', level: uiConfig.moduleCompletion, category: 'fetch', detail: '20-bit ROM' },
+            { name: 'Instruction Register', icon: '🧾', level: uiConfig.moduleCompletion, category: 'fetch', detail: 'Fetch latch' },
+            { name: 'Instruction Reader', icon: '🔍', level: uiConfig.moduleCompletion, category: 'fetch', detail: 'Opcode fields' },
+            { name: 'Register File', icon: '🗂️', level: uiConfig.moduleCompletion, category: 'execute', detail: '64-bit regs' },
+            { name: 'ALU', icon: '➕', level: uiConfig.moduleCompletion, category: 'execute', detail: 'Scalar/Vector ops' },
+            { name: 'Operand Select Mux', icon: '🎚️', level: uiConfig.moduleCompletion, category: 'execute', detail: 'Operand B' },
+            { name: 'Immediate Extend', icon: '📏', level: uiConfig.moduleCompletion, category: 'execute', detail: '9-bit sign-ext' },
+            { name: 'Data Memory', icon: '💾', level: uiConfig.moduleCompletion, category: 'memory', detail: '16-bit data' },
+            { name: 'Store Data Select', icon: '📤', level: uiConfig.moduleCompletion, category: 'memory', detail: 'Lane select' },
+            { name: 'Load Lane Insert', icon: '📥', level: uiConfig.moduleCompletion, category: 'memory', detail: 'Lane insert' },
+            { name: 'Control Unit', icon: '🎛️', level: uiConfig.moduleCompletion, category: 'control', detail: 'Opcode decode' },
+            { name: 'Writeback Mux', icon: '🔁', level: uiConfig.moduleCompletion, category: 'control', detail: 'ALU/Load/Imm' },
+            { name: 'Flags Update', icon: '🚩', level: uiConfig.moduleCompletion, category: 'control', detail: 'Z/N/C/V' },
+            { name: 'Special Registers', icon: '🧠', level: uiConfig.moduleCompletion, category: 'control', detail: 'Hi/Lo + SR' },
+            { name: 'Condition Check', icon: '✅', level: uiConfig.moduleCompletion, category: 'control', detail: 'BEQ/BEQZ' },
+            { name: 'PC Incrementer', icon: '➕', level: uiConfig.moduleCompletion, category: 'control', detail: 'PC + 1' },
+            { name: 'PC Offset Adder', icon: '🧭', level: uiConfig.moduleCompletion, category: 'control', detail: 'Branch target' },
+            { name: 'PC Select Mux', icon: '🔀', level: uiConfig.moduleCompletion, category: 'control', detail: 'Next PC' }
         ];
 
         // Scroll to section function
@@ -141,10 +147,15 @@ https://templatemo.com/tm-600-prism-flux
                     <h3 class="card-title">${data.title}</h3>
                     <p class="card-description">${data.description}</p>
                     <div class="card-tech">${techBadges}</div>
-                    <button class="card-cta" onclick="scrollToSection('about')">Explore</button>
+                    <button class="card-cta">View Metrics</button>
                 </div>
             `;
             
+            const ctaButton = item.querySelector('.card-cta');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', () => scrollToSection(uiConfig.scrollTarget));
+            }
+
             return item;
         }
 
@@ -291,7 +302,7 @@ https://templatemo.com/tm-600-prism-flux
                                 <div class="skill-level">
                                     <div class="skill-level-fill" style="width: ${skill.level}%"></div>
                                 </div>
-                                <div class="skill-percentage-hex">${skill.level}%</div>
+                                <div class="skill-percentage-hex">${skill.detail}</div>
                             </div>
                         </div>
                     `;
@@ -459,7 +470,16 @@ https://templatemo.com/tm-600-prism-flux
             const data = Object.fromEntries(formData);
             
             // Show success message
-            alert(`Thank you ${data.name}! Your message has been transmitted successfully. We'll respond within 24 hours.`);
+            let formMessage = document.getElementById('formMessage');
+            if (!formMessage) {
+                formMessage = document.createElement('div');
+                formMessage.id = 'formMessage';
+                formMessage.className = 'form-message';
+                formMessage.style.marginTop = '16px';
+                formMessage.style.color = 'var(--accent-purple)';
+                contactForm.appendChild(formMessage);
+            }
+            formMessage.textContent = uiConfig.verificationMessage;
             
             // Reset form
             contactForm.reset();

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRISM FLUX - Digital Innovation Studio</title>
+    <title>CS-117 Single-Cycle CPU</title>
     <link rel="stylesheet" href="templatemo-prism-flux.css">
 <!-- 
 
-TemplateMo 600 Prism Flux
+Template base: TemplateMo Prism Flux
 
 https://templatemo.com/tm-600-prism-flux
 
@@ -22,7 +22,7 @@ https://templatemo.com/tm-600-prism-flux
                 <div class="prism-face"></div>
                 <div class="prism-face"></div>
             </div>
-            <div style="color: var(--accent-purple); font-size: 18px; text-transform: uppercase; letter-spacing: 3px;">Refracting Reality...</div>
+            <div style="color: var(--accent-purple); font-size: 18px; text-transform: uppercase; letter-spacing: 3px;">Booting CS-117 CPU...</div>
         </div>
     </div>
 
@@ -41,10 +41,10 @@ https://templatemo.com/tm-600-prism-flux
             
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#stats" class="nav-link">Metrics</a></li>
-                <li><a href="#skills" class="nav-link">Arsenal</a></li>
-                <li><a href="#contact" class="nav-link">Try Now</a></li>
+                <li><a href="#about" class="nav-link">Team</a></li>
+                <li><a href="#stats" class="nav-link">Key Specs</a></li>
+                <li><a href="#skills" class="nav-link">Modules</a></li>
+                <li><a href="#contact" class="nav-link">Simulation</a></li>
             </ul>
             
             <div class="menu-toggle" id="menuToggle">
@@ -73,18 +73,18 @@ https://templatemo.com/tm-600-prism-flux
         </div>
     </section>
 
-    <!-- NEW: Prism Philosophy Section (About) -->
+    <!-- Team Section -->
     <section class="philosophy-section" id="about">
         <div class="philosophy-container">
             <div class="prism-line"></div>
             
             <h2 class="philosophy-headline">
-                Meet the CS 117<br>Processor Team
+                👥 Meet the CS-117<br>Processor Team
             </h2>
             
             <p class="philosophy-subheading">
-                This project was designed and implemented by three students in CS 117, collaborating to build a
-                custom processor from individual Verilog modules all the way up to an integrated top module.
+                This CS-117 semester project delivers a custom single-cycle CPU in Verilog with a 20-bit instruction
+                format, Harvard architecture, and a 9-bit program counter that addresses up to 512 instructions.
             </p>
             
             <div class="philosophy-pillars">
@@ -92,7 +92,7 @@ https://templatemo.com/tm-600-prism-flux
                     <div class="pillar-icon">🧭</div>
                     <h3 class="pillar-title">Lameea Mubashir Khan</h3>
                     <p class="pillar-description">
-                        Designed and implemented the control-path building blocks of the processor, including:
+                        Designed the control-path building blocks of the processor, including:
                     </p>
                     <ul class="pillar-modules">
                         <li><code>control_unit.v</code></li>
@@ -110,8 +110,7 @@ https://templatemo.com/tm-600-prism-flux
                     <div class="pillar-icon">⚙️</div>
                     <h3 class="pillar-title">Tooba Fatima</h3>
                     <p class="pillar-description">
-                        Implemented the core datapath components, enabling arithmetic, logical, and register-level
-                        operations, including:
+                        Implemented datapath components enabling scalar and vector operations, including:
                     </p>
                     <ul class="pillar-modules">
                         <li><code>alu.v</code></li>
@@ -127,8 +126,7 @@ https://templatemo.com/tm-600-prism-flux
                     <div class="pillar-icon">🧠</div>
                     <h3 class="pillar-title">Muhammad Taha Bin Zaeem</h3>
                     <p class="pillar-description">
-                        Developed branching and memory control logic, and integrated all modules into the final
-                        <code>top_module.v</code>, including:
+                        Developed branching, memory logic, and integrated all modules into <code>top_module.v</code>, including:
                     </p>
                     <ul class="pillar-modules">
                         <li><code>condition_check.v</code></li>
@@ -149,37 +147,37 @@ https://templatemo.com/tm-600-prism-flux
     <!-- Stats Section with Content -->
     <section class="stats-section" id="stats">
         <div class="section-header">
-            <h2 class="section-title">Performance Metrics</h2>
-            <p class="section-subtitle">Real-time analytics and achievements powered by cutting-edge technology</p>
+            <h2 class="section-title">📊 CPU Key Metrics</h2>
+            <p class="section-subtitle">Core design facts from the CS-117 single-cycle processor.</p>
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-icon">🚀</div>
-                <div class="stat-number" data-target="150">0</div>
-                <div class="stat-label">Projects Completed</div>
-                <p class="stat-description">Successfully delivered enterprise-level solutions across multiple industries with 100% on-time completion rate.</p>
+                <div class="stat-icon">🧾</div>
+                <div class="stat-number" data-target="20">0</div>
+                <div class="stat-label">Instruction Width (bits)</div>
+                <p class="stat-description">20-bit instructions encode opcode, registers, shamt, immediate, and lane_select fields.</p>
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon">⚡</div>
-                <div class="stat-number" data-target="99">0</div>
-                <div class="stat-label">Client Satisfaction %</div>
-                <p class="stat-description">Maintaining excellence through continuous feedback loops and agile development methodologies.</p>
+                <div class="stat-icon">🧭</div>
+                <div class="stat-number" data-target="9">0</div>
+                <div class="stat-label">Program Counter Bits</div>
+                <p class="stat-description">The 9-bit PC addresses up to 512 instructions in a Harvard instruction memory.</p>
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon">🏆</div>
-                <div class="stat-number" data-target="25">0</div>
-                <div class="stat-label">Industry Awards</div>
-                <p class="stat-description">Recognized globally for innovation in digital transformation and technological advancement.</p>
+                <div class="stat-icon">🧮</div>
+                <div class="stat-number" data-target="4">0</div>
+                <div class="stat-label">Vector Lanes</div>
+                <p class="stat-description">Vector mode uses 4×16-bit lanes, yielding 64-bit data paths for VADD/VMUL.</p>
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon">💎</div>
-                <div class="stat-number" data-target="500">0</div>
-                <div class="stat-label">Code Commits Daily</div>
-                <p class="stat-description">Continuous integration and deployment with automated testing ensuring maximum code quality.</p>
+                <div class="stat-icon">📦</div>
+                <div class="stat-number" data-target="512">0</div>
+                <div class="stat-label">Instruction Capacity</div>
+                <p class="stat-description">PC range supports 512 addresses for test programs and verification flows.</p>
             </div>
         </div>
     </section>
@@ -188,16 +186,16 @@ https://templatemo.com/tm-600-prism-flux
     <section class="skills-section" id="skills">
         <div class="skills-container">
             <div class="section-header">
-                <h2 class="section-title">Technical Arsenal</h2>
-                <p class="section-subtitle">Mastery of cutting-edge technologies and frameworks</p>
+                <h2 class="section-title">🧩 Module Map</h2>
+                <p class="section-subtitle">Grouped by datapath stage from the README block diagram.</p>
             </div>
             
             <div class="skill-categories">
-                <div class="category-tab active" data-category="all">All Skills</div>
-                <div class="category-tab" data-category="frontend">Frontend</div>
-                <div class="category-tab" data-category="backend">Backend</div>
-                <div class="category-tab" data-category="cloud">Cloud & DevOps</div>
-                <div class="category-tab" data-category="emerging">Emerging Tech</div>
+                <div class="category-tab active" data-category="all">All Modules</div>
+                <div class="category-tab" data-category="fetch">Fetch & Decode</div>
+                <div class="category-tab" data-category="execute">Execute</div>
+                <div class="category-tab" data-category="memory">Memory</div>
+                <div class="category-tab" data-category="control">Write-back & Next PC</div>
             </div>
 
             <div class="skills-hexagon-grid" id="skillsGrid">
@@ -209,67 +207,67 @@ https://templatemo.com/tm-600-prism-flux
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="section-header">
-            <h2 class="section-title">Initialize Connection</h2>
-            <p class="section-subtitle">Ready to transform your vision into reality? Let's connect.</p>
+            <h2 class="section-title">🧪 Simulation Steps</h2>
+            <p class="section-subtitle">Xilinx ISE flow and verification checklist from the README.</p>
         </div>
         
         <div class="contact-container">
             <div class="contact-info">
-                <a href="https://maps.google.com/?q=Silicon+Valley+CA+94025" target="_blank" class="info-item">
-                    <div class="info-icon">📍</div>
+                <a href="#" class="info-item">
+                    <div class="info-icon">🛠️</div>
                     <div class="info-text">
-                        <h4>Location</h4>
-                        <p>Silicon Valley, CA 94025</p>
+                        <h4>Create ISE Project</h4>
+                        <p>Open Xilinx ISE → New Project, choose name/location, target device.</p>
                     </div>
                 </a>
                 
-                <a href="mailto:hello@prismflux.io" class="info-item">
-                    <div class="info-icon">📧</div>
+                <a href="#" class="info-item">
+                    <div class="info-icon">📂</div>
                     <div class="info-text">
-                        <h4>Email</h4>
-                        <p>hello@prismflux.io</p>
+                        <h4>Add Sources</h4>
+                        <p>Add all .v files plus top_module.v as the simulation top.</p>
                     </div>
                 </a>
                 
-                <a href="tel:+15551234567" class="info-item">
-                    <div class="info-icon">📱</div>
+                <a href="#" class="info-item">
+                    <div class="info-icon">🧪</div>
                     <div class="info-text">
-                        <h4>Phone</h4>
-                        <p>+1 (555) 123-4567</p>
+                        <h4>Create Testbench</h4>
+                        <p>Build a Verilog test fixture and drive clk/reset.</p>
                     </div>
                 </a>
                 
-                <a href="https://calendly.com" target="_blank" class="info-item">
-                    <div class="info-icon">📅</div>
+                <a href="#" class="info-item">
+                    <div class="info-icon">📈</div>
                     <div class="info-text">
-                        <h4>Schedule Meeting</h4>
-                        <p>Book a consultation</p>
+                        <h4>Run Simulation</h4>
+                        <p>Initialize memories, launch ISim, and observe waveforms.</p>
                     </div>
                 </a>
             </div>
             
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="programCounter">Program Counter</label>
+                    <input type="text" id="programCounter" name="programCounter" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="registerWrites">Register Writes</label>
+                    <input type="text" id="registerWrites" name="registerWrites" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
+                    <label for="memoryOperations">Memory Operations</label>
+                    <input type="text" id="memoryOperations" name="memoryOperations" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="vectorOpsFlags">Vector Ops & Flags</label>
+                    <textarea id="vectorOpsFlags" name="vectorOpsFlags" required></textarea>
                 </div>
                 
-                <button type="submit" class="submit-btn">Transmit Message</button>
+                <button type="submit" class="submit-btn">Log Verification Notes</button>
             </form>
         </div>
     </section>
@@ -285,58 +283,58 @@ https://templatemo.com/tm-600-prism-flux
                         </div>
                     </div>
                     <span class="logo-text">
-                        <span class="prism">PRISM</span>
-                        <span class="flux">FLUX</span>
+                        <span class="prism">CS-117</span>
+                        <span class="flux">CPU</span>
                     </span>
                 </div>
                 <p class="footer-description">
-                    Refracting complex challenges into brilliant solutions through the convergence of art, science, and technology.
+                    Simulation results confirm correct single-cycle execution for scalar, vector, memory, and branch instructions.
                 </p>
                 <div class="footer-social">
-                    <a href="#" class="social-icon">f</a>
-                    <a href="#" class="social-icon">t</a>
-                    <a href="#" class="social-icon">in</a>
-                    <a href="#" class="social-icon">ig</a>
+                    <a href="#" class="social-icon">ALU</a>
+                    <a href="#" class="social-icon">PC</a>
+                    <a href="#" class="social-icon">MEM</a>
+                    <a href="#" class="social-icon">VEC</a>
                 </div>
             </div>
             
             <div class="footer-section">
-                <h4>Services</h4>
+                <h4>📁 Directory Overview</h4>
                 <div class="footer-links">
-                    <a href="#">Web Development</a>
-                    <a href="#">App Development</a>
-                    <a href="#">Cloud Solutions</a>
-                    <a href="#">AI Integration</a>
+                    <a href="#">project/ (Verilog modules)</a>
+                    <a href="#">README.md (project report)</a>
+                    <a href="#">TopModule integration</a>
+                    <a href="#">Testbench-ready design</a>
                 </div>
             </div>
             
             <div class="footer-section">
-                <h4>Company</h4>
+                <h4>🧾 Instruction Set</h4>
                 <div class="footer-links">
-                    <a href="#">About Us</a>
-                    <a href="#">Our Team</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Press Kit</a>
+                    <a href="#">Scalar ALU ops (ADD/SUB/AND)</a>
+                    <a href="#">Vector ops (VADD/VMUL/VADDI)</a>
+                    <a href="#">Loads/stores (LW/SW)</a>
+                    <a href="#">Branches & jumps (BEQ/BEQZ/J)</a>
                 </div>
             </div>
             
             <div class="footer-section">
-                <h4>Resources</h4>
+                <h4>🧪 Simulation & Testing</h4>
                 <div class="footer-links">
-                    <a href="#">Documentation</a>
-                    <a href="#">API Reference</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Support</a>
+                    <a href="#">ISE 14.x + ISim workflow</a>
+                    <a href="#">Initialize instruction/data memory</a>
+                    <a href="#">Waveform signal checklist</a>
+                    <a href="#">Verify flags and Hi/Lo</a>
                 </div>
             </div>
         </div>
         
         <div class="footer-bottom">
             <div class="copyright">
-                © 2026 PRISM FLUX. All rights reserved.
+                © CS-117 Semester Project. All rights reserved.
             </div>
             <div class="footer-credits">
-                Designed by <a href="https://templatemo.com" rel="nofollow" target="_blank">TemplateMo</a>
+                Instruction and data memories default to zero until initialized.
             </div>
         </div>
     </footer>
