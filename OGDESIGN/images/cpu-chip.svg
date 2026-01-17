@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#0f172a"/>
+  <rect x="170" y="100" width="460" height="300" rx="24" fill="#1f2937" stroke="#38bdf8" stroke-width="8"/>
+  <rect x="230" y="160" width="340" height="180" rx="16" fill="#111827" stroke="#38bdf8" stroke-width="6"/>
+  <text x="400" y="260" text-anchor="middle" fill="#38bdf8" font-size="56" font-family="Arial, sans-serif" font-weight="700">CPU CORE</text>
+  <g stroke="#94a3b8" stroke-width="6">
+    <line x1="130" y1="130" x2="170" y2="130"/>
+    <line x1="130" y1="200" x2="170" y2="200"/>
+    <line x1="130" y1="270" x2="170" y2="270"/>
+    <line x1="130" y1="340" x2="170" y2="340"/>
+    <line x1="630" y1="130" x2="670" y2="130"/>
+    <line x1="630" y1="200" x2="670" y2="200"/>
+    <line x1="630" y1="270" x2="670" y2="270"/>
+    <line x1="630" y1="340" x2="670" y2="340"/>
+  </g>
+</svg>

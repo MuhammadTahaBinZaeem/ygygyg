@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#0b1120"/>
+  <rect x="110" y="130" width="580" height="240" rx="30" fill="#1e293b" stroke="#22c55e" stroke-width="8"/>
+  <text x="400" y="235" text-anchor="middle" fill="#22c55e" font-size="60" font-family="Arial, sans-serif" font-weight="700">Xilinx ISE</text>
+  <text x="400" y="300" text-anchor="middle" fill="#94a3b8" font-size="30" font-family="Arial, sans-serif">ISim Simulation</text>
+  <line x1="200" y1="340" x2="600" y2="340" stroke="#22c55e" stroke-width="6" stroke-dasharray="12 12"/>
+</svg>
